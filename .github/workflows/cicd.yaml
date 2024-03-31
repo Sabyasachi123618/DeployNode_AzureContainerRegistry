@@ -16,6 +16,8 @@ jobs:
         with: 
           node-version: '18.x'
       - name: Install Dependencies
-        run: npm install     
+        run: npm install
+      -name: Source File Health checck
+           run: node ./index.js
 
               
