@@ -6,7 +6,7 @@ on:
       - main
 
 jobs: 
-  build-dockerfile-and-deploy-image-to-dockerhub:
+  build-image-from-dockerfile-and-push-to-ACR:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
