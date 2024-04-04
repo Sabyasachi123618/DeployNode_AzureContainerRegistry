@@ -17,5 +17,5 @@ jobs:
           login-server: test98acr.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
-      - name: Build Docker Image
+      - name: Build Docker Image from Dockerfile
         run: docker build -t demo_image ../
