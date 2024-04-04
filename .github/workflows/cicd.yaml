@@ -19,3 +19,5 @@ jobs:
           password: ${{ secrets.ACR_PASSWORD }}
       - name: Build Docker Image from Dockerfile
         run: docker build -t demo_image .
+      - name: Push Image to docker
+        run: docker push test98acr.azurecr.io/demo_image:v1
