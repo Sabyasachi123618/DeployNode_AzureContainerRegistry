@@ -18,4 +18,4 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
       - name: Build Docker Image from Dockerfile
-        run: docker build -t demo_image ../
+        run: docker build -t demo_image .
