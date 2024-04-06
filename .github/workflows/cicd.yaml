@@ -9,10 +9,10 @@ jobs:
   login-to-azure:
     runs-on: windows-latest
     steps:
-      - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
-        uses: azure/login@v1
+      - name: Azure login
+        uses: azure/login@v2
         with:
-          client-id: 503fa4c0-4da9-4630-aedc-609332f67d44
+          auth-type: IDENTITY          
           tenant-id: 7359f896-71e2-4dae-b8a3-15cdf97f2f10
           subscription-id: 5d0e38a3-8ba1-4308-81f6-3a76788ecdf7
           enable-AzPSSession: true
