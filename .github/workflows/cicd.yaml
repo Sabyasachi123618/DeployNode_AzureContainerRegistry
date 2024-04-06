@@ -6,7 +6,7 @@ on:
       - main
 
 jobs: 
-  login to azure:
+  login-to-azure:
     runs-on: windows-latest
     steps:
       - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
