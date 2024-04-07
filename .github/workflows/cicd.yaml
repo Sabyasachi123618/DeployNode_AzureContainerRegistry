@@ -10,10 +10,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Azure login
-        uses: azure/login@v2
+        uses: azure/login@v1
         with:
-          auth-type: IDENTITY          
-          tenant-id: 7359f896-71e2-4dae-b8a3-15cdf97f2f10
-          subscription-id: 5d0e38a3-8ba1-4308-81f6-3a76788ecdf7
-          enable-AzPSSession: true
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       
