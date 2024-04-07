@@ -24,6 +24,6 @@ jobs:
         uses: Azure/k8s-deploy@v1
         with:
           manifests: |
-            nodedemo.yaml
+            nodedemo.yml
 
       
