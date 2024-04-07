@@ -16,7 +16,7 @@ jobs:
       - name: login to ACR using access token
         run: docker login test98acr.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password ${{ secrets.ACR_ACCESS_TOKEN }}
       - name: set context
-      - uses: azure/aks-set-context@v3
+        uses: azure/aks-set-context@v3
         with:
           resource-group: 'Kuberneetes'
           cluster-name: 'demo'
