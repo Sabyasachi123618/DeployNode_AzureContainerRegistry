@@ -13,4 +13,7 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: login to azure using access token
+        run: docker login test98acr.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password ${{ secrets.ACR_ACCESS_TOKEN }}
+
       
