@@ -21,6 +21,9 @@ jobs:
           resource-group: 'Kuberneetes'
           cluster-name: 'demo'
       - name: deploy
-        run : kubectl apply -f ../nodedemo.yaml
+        uses: Azure/k8s-deploy@v1
+        with:
+          manifests: |
+            nodedemo.yaml
 
       
