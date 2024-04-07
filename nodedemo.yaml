@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp-demo-deployment
+spec:
+  replicas: 1   # Number of NGINX pods to run
+  selector:
+    matchLabels:
+      app: nodeapp
+  template:
+    metadata:
+      labels:
+        app: nodeapp
+    spec:
+      containers:
+      - name: nodeapp
+        image: test98acr.azurecr.io/demo_image:v1   # NGINX image to deploy
+        ports:
+        - containerPort: 3000   # Port exposed by the NGINX container
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeapp-demo-deployment
+spec:
+  selector:
+    app: nodeapp  
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer 
