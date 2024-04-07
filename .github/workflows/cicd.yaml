@@ -20,5 +20,11 @@ jobs:
         with:
           resource-group: 'Kuberneetes'
           cluster-name: 'demo'
+      - name: deploy
+        uses: Azure/k8s-deploy@v5
+        with:
+          namespace: 'default'
+          manifests: |
+            nodedemo.yaml
 
       
