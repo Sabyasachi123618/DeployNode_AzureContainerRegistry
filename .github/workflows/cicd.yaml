@@ -13,7 +13,7 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: login to ACR using access token
+      - name: login to ACR using updated access token
         run: echo ${{ secrets.ACR_ACCESS_TOKEN }} | docker login test98acr.azurecr.io --username _ --password-stdin
       - name: set context
         uses: azure/aks-set-context@v3
