@@ -21,6 +21,6 @@ jobs:
           resource-group: 'Kuberneetes'
           cluster-name: 'demo'
       - name: deploy
-        run: kubectl apply -f manifest.yaml
+        run: kubectl apply -f ./manifest.yaml
 
       
