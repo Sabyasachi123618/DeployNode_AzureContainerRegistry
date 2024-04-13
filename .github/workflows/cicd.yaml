@@ -23,6 +23,6 @@ jobs:
       - name: deploy
         uses: Azure/k8s-deploy@v1
         with:
-          manifests: manifest.yml
+          manifests: ./manifest.yml
 
       
