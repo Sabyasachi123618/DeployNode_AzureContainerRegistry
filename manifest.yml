@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-demo-deployment1
+  name: nodeapp-demo-deployment
 spec:
   replicas: 2   # Number of NGINX pods to run
   selector:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nodeapp
-        image: test98acr.azurecr.io/myimage:${SHA}   # NGINX image to deploy
+        image: test98acr.azurecr.io/myimage:9e46d82d5c85ed249a72496aa6d0e8b5283581ac   # NGINX image to deploy
         ports:
         - containerPort: 3000   # Port exposed by the NGINX container
 
@@ -22,7 +22,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodeapp-demo-deployment1
+  name: nodeapp-demo-deployment
 spec:
   selector:
     app: nodeapp  
