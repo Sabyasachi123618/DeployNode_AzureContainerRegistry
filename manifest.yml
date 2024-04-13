@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-demo-deployment
+  name: nodeapp-demo-deployment1
 spec:
   replicas: 2   # Number of NGINX pods to run
   selector:
@@ -22,7 +22,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodeapp-demo-deployment
+  name: nodeapp-demo-deployment1
 spec:
   selector:
     app: nodeapp  
