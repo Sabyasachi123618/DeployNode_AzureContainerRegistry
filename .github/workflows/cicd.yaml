@@ -21,6 +21,7 @@ jobs:
             echo "Login to ACR Failed"
           else
             echo "Login to ACR is successfull"
+          fi
       # - name: Build and push Docker image and set sha value to Env
       #   run: |
       #     docker build -t test98acr.azurecr.io/myimage:${{ github.sha }} .
