@@ -16,21 +16,25 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: login to ACR using updated access token
-        run: docker login test98acr.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password ${{ secrets.ACR_ACCESS_TOKEN }}
-      - name: Build and push Docker image and set sha value to Env
         run: |
-          docker build -t test98acr.azurecr.io/myimage:${{ github.sha }} .
-          docker push test98acr.azurecr.io/myimage:${{ github.sha }}
-          echo "SHA=${{ github.sha }}" >> $GITHUB_ENV
-          echo "This is the environment sha:$SHA"
-      - name: set context
-        uses: azure/aks-set-context@v3
-        with:
-          resource-group: 'Kuberneetes'
-          cluster-name: 'demo'
-      - name: deploy
-        uses: Azure/k8s-deploy@v1
-        with:
-          manifests: manifest.yml
+          if ! docker login test98acr.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password ${{ secrets.ACR_ACCESS_TOKEN }}; then
+            echo "Login to ACR Failed"
+          else
+            echo "Login to ACR is successfull"
+      # - name: Build and push Docker image and set sha value to Env
+      #   run: |
+      #     docker build -t test98acr.azurecr.io/myimage:${{ github.sha }} .
+      #     docker push test98acr.azurecr.io/myimage:${{ github.sha }}
+      #     echo "SHA=${{ github.sha }}" >> $GITHUB_ENV
+      #     echo "This is the environment sha:$SHA"
+      # - name: set context
+      #   uses: azure/aks-set-context@v3
+      #   with:
+      #     resource-group: 'Kuberneetes'
+      #     cluster-name: 'demo'
+      # - name: deploy
+      #   uses: Azure/k8s-deploy@v1
+      #   with:
+      #     manifests: manifest.yml
 
       
