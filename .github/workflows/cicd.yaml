@@ -22,7 +22,7 @@ jobs:
           docker build -t test98acr.azurecr.io/myimage:${{ github.sha }} .
           docker push test98acr.azurecr.io/myimage:${{ github.sha }}
           echo "SHA=${{ github.sha }}" >> $GITHUB_ENV
-          echo $SHA
+          echo "This is the environment sha:$SHA"
       - name: set context
         uses: azure/aks-set-context@v3
         with:
